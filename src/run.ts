@@ -375,7 +375,7 @@ export async function runVersion({
   console.log("🔥 Pushing branch.");
 
   try {
-    const res = await gitUtils.push(versionBranch, { force: true });
+    const res = await gitUtils.push(versionBranch, { force: false });
     console.log(`🔥 Push return: ${res}`);
   } catch (e) {
     console.log("🔥 Pushing error:");
