@@ -372,18 +372,20 @@ export async function runVersion({
     await gitUtils.commitAll(finalCommitMessage);
   }
 
-  console.log("ℹ️ Pushing branch.");
+  console.log("🔥 Pushing branch.");
 
   try {
-    await gitUtils.push(versionBranch, { force: true });
+    const res = await gitUtils.push(versionBranch, { force: true });
+    console.log(`🔥 Push return: ${res}`);
   } catch (e) {
+    console.log("🔥 Pushing error:");
     console.log(e);
   }
 
-  console.log("ℹ️ Search result stuff.");
+  console.log("🔥 Search result stuff.");
 
   let searchResult = await searchResultPromise;
-  console.log("ℹ️ Search result: ", searchResult);
+  console.log("🔥 Search result: ", searchResult);
   core.info(JSON.stringify(searchResult.data, null, 2));
 
   const changedPackagesInfo = (await changedPackagesInfoPromises)

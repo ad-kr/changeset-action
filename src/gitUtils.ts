@@ -21,7 +21,7 @@ export const push = async (
   branch: string,
   { force }: { force?: boolean } = {}
 ) => {
-  await exec(
+  return await exec(
     "git",
     ["push", "origin", `HEAD:${branch}`, force && "--force"].filter<string>(
       Boolean as any
